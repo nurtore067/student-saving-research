@@ -4,8 +4,16 @@
 voluntary informed consent. Use anonymous IDs. Explain that answers do not
 change real borrowing or credit; never require bank data.
 
+**Response scales:**
+- Goal attainability (Questions 1 and 8):
+  1 = Not at all achievable, 7 = Very achievable.
+- Saving and purchase intention (Questions 2, 9 and 10):
+  1 = Very unlikely, 7 = Very likely.
+- All participants will see the same scale labels.
+- Pre- and post-experiment questions will use identical wording.
+
 **Baseline, before randomization:**
-1. How achievable is your current saving goal? (1-7)
+1. How achievable is your saving goal? (1-7)
 2. How likely are you to put money toward this goal in the next month? (1-7)
 3. Your age (18-24); current employment status.
 4. Approximate money left each month after essential spending (KZT range).
