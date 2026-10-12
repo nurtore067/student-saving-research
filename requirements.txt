@@ -1,0 +1,2 @@
+# Exact direct dependency. Tested with CPython 3.13.5.
+PyYAML==6.0.3

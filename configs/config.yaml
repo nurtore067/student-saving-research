@@ -1,0 +1,27 @@
+# Task 2 experiment settings. No passwords, bank data, or API keys.
+project:
+  title: "Why Saving Seems Pointless to Students"
+  status: "prototype_pipeline_only"
+  sample_data_synthetic: true
+experiment:
+  allocation_seed_for_pilot_only: 20261012
+  groups:
+    A: "Full-price emphasis + generic guidance"
+    B: "Installment emphasis + generic guidance"
+    C: "Installment emphasis + proposed AI guidance"
+  study_location: "Almaty, Kazakhstan"
+  eligible_age_min: 18
+  eligible_age_max: 24
+  product_total_kzt: 24000
+  installments: 4
+  installment_kzt: 6000
+  response_scale_min: 1
+  response_scale_max: 7
+files:
+  sample_csv: "data/sample/sample_responses.csv"
+  output_json: "outputs/demo_results.json"
+  output_csv: "outputs/demo_group_summary.csv"
+  output_log: "outputs/demo_run.log"
+guardrails:
+  max_incomplete_rate: 0.10
+  min_price_comprehension_rate: 0.80

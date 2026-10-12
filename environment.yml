@@ -1,0 +1,9 @@
+# Conda alternative to the pip Quickstart; direct versions pinned.
+name: saving-research-task2
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13.5
+  - pip=25.1.1
+  - pip:
+      - PyYAML==6.0.3

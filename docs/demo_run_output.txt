@@ -1,0 +1,5 @@
+SYNTHETIC DATA ONLY - THIS IS NOT A HUMAN EXPERIMENT RESULT
+Valid rows: 9
+Primary (C minus B, goal-change points): +0.3333
+Secondary (B minus A, purchase-intention points): +1.3333
+Files: outputs/demo_results.json, outputs/demo_group_summary.csv

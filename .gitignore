@@ -1,0 +1,52 @@
+# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Credentials, local configurations, private survey data
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets.*
+credentials.*
+data/private/
+data/raw/
+data/real/
+
+# Outputs and potentially large artifacts
+outputs/*
+!outputs/.gitkeep
+*.log
+*.pkl
+*.pickle
+*.joblib
+*.pt
+*.pth
+*.onnx
+*.h5
+*.sqlite
+*.db
+*.parquet
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.bin
+*.ckpt
+
+# Notebooks' generated files
+.ipynb_checkpoints/
