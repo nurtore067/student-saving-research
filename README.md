@@ -160,14 +160,10 @@ If referencing this repository, cite:
   title = {Why Saving Seems Pointless to Students: The Role of Financial Expectations and Digital Purchase Incentives},
   year = {2026},
   note = {Research Methods Task 2; methodology and reproducible synthetic-data demo},
-  howpublished = {Public GitHub repository (insert final URL before submission)}
+  howpublished = {https://github.com/nurtore067/student-saving-research}
 }
 ```
 
 Source code and original synthetic files are released under the [MIT License](LICENSE).
 Actual participants' identifiable financial data must **not** be public or
 implicitly covered by this license.
-
-**Submission:** attach the PDF Methodology Passport Card in Canvas/LMS and
-paste the public GitHub repo URL. Replace the PDF/Markdown GitHub placeholder
-only when your real GitHub repo exists.

@@ -2,7 +2,7 @@
 
 **Research title:** Why Saving Seems Pointless to Students: The Role of Financial Expectations and Digital Purchase Incentives  
 **Authors:** Gumar Nurtore; Kydyralina Akniet  
-**GitHub:** **[REPLACE WITH THE ACTUAL PUBLIC GITHUB REPOSITORY URL BEFORE SUBMISSION]**  
+**GitHub:** https://github.com/nurtore067/student-saving-research
 **Version:** 1.0 | 12 October 2026 | Study design / no real participant results
 
 ## 1. Project information and IT solution
