@@ -14,7 +14,7 @@
   "warmup_per_configuration": 20,
   "measurements_per_configuration": 200,
   "unit": "batch latency in ms",
-  "execution_location": "ChatGPT execution environment, not student laptop",
+  "execution_location": "Nurtore Windows 11 computer (local benchmark run)",
   "workload": "fixed nested subsets of the same 330 synthetic profiles; sequential CPU batches",
   "baseline_revision": "",
   "files_sha256": {

@@ -30,9 +30,9 @@ is made. p99 is exploratory because only about two observations occupy the top 1
 
 ## Scope and limitations
 
-Timing was collected in the ChatGPT execution environment. See data/raw/run_metadata.json for actual
+Timing was collected on Nurtore's Windows 11 computer. See data/raw/run_metadata.json for actual
 Python, platform, UTC time and hashes. These are real measurements, not generated timing values.
-Shared-host scheduling, interpreter overhead and memory allocation affect these small durations.
+Operating-system scheduling, interpreter overhead and memory allocation affect these small durations.
 Only one session and one environment were used. No dedicated CPU affinity or memory limit was set.
 Bootstrap CIs describe resampling variability of recorded runs on these fixed inputs. Temporal dependence
 and host noise can make them optimistic; they do not measure uncertainty about real students.

@@ -1,169 +1,97 @@
 # Why Saving Seems Pointless to Students
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-![Status: research prototype](https://img.shields.io/badge/Status-Task%202%20prototype-64748b)
-![Data: synthetic](https://img.shields.io/badge/Data-Synthetic%20only-orange)
+**Gumar Nurtore and Kydyralina Akniet — Research Methods, Task 3**
 
-**Full title:** Why Saving Seems Pointless to Students: The Role of Financial Expectations and Digital Purchase Incentives  
-**Authors:** Gumar Nurtore and Kydyralina Akniet  
-**Research Methods - Task 2 / Methodology Passport Card and Reproducible Research Repository**  
-**Status:** Planned quantitative study, tested analysis pipeline; **not** a completed AI intervention or human study.
+Technical evaluation of a rule-based saving coach prototype. Inputs are synthetic;
+recorded timings are real. No human participants or generative AI intervention were tested.
 
-## 1. Project overview, research question and hypotheses
+## Research context
 
-We study whether students' views about their ability to save are connected to
-saving intention and whether highlighting installment payments changes purchase
-intention. We also propose an **AI Saving Coach** for students in Kazakhstan:
-a future mobile app with manual income and expense entry, saving goals, step-by-step
-plans, progress widgets and clear total-installment-cost explanations. Bank
-integration is only a future possibility. No real bank account data is used here.
+The original A/B/C design studies total-price emphasis, installment emphasis and personalized guidance.
+The [Task 2 overview](docs/task2_overview.md) and [original protocol](docs/experimental_protocol.md)
+are retained. This task asks how much computation the personalized calculator adds to a fixed reminder.
+It cannot establish whether an AI assistant changes students' behavior.
 
-**Primary RQ (Task 2 extension):** Does a proposed AI-assisted personalized saving
-coach increase perceived saving-goal attainability compared with generic
-financial information when the same installment offer is shown?
+## Quickstart
 
-**Primary H0:** Mean pre-to-post attainability change is the same in B and C.  
-**Primary H1:** Mean change differs between B and C; we predict higher change in C.
-
-**Task 1 questions retained:** (1) goal attainability and saving intention;
-(2) total-price vs installment *emphasis* and purchase intention;
-(3) exploratory moderation by baseline goal attainability. Their full H0/H1
-and covariates are in [the Methodology Card](docs/methodology_passport.md).
-
-**Important scientific boundary:** the current Python code validates the
-measurement pipeline on synthetic data. `src/mentor_preview.py` is a **rule-based
-calculation demonstration, not a generative AI model**. Real AI treatment and
-human outcome validation are planned for later, not claimed in this repo.
-
-## 2. Experimental design and variables
-
-| Group | Product card (BOTH prices remain visible) | Guidance | Valid comparison |
-|---|---|---|---|
-| A | Total **24,000 KZT** visually emphasized; 4 x 6,000 also present | Generic financial summary | A vs B for price prominence |
-| B | **4 x 6,000 KZT** visually emphasized; 24,000 total also present | Same generic summary | Baseline for C |
-| C | Same card as B | Planned personalized AI-assisted guidance | B vs C for guidance package |
-
-**Independent:** randomized price prominence (A/B) or assigned guidance (B/C).
-**Dependent:** perceived goal attainability change, purchase intention,
-saving intention (1-7 response scales). **Controlled:** exact product, total
-price, credit terms, fees, copy, platform, pre/post wording and comparable
-exposure. Baseline financial status and attainability are measured, not
-experimentally assigned. The B/C comparison tests a *package*, not proof
-that LLMs outperform matched personalized non-AI advice.
-
-**Primary metric:** `mean(attainability_post - attainability_pre in C) -
-mean(attainability_post - attainability_pre in B)` (points on the 1-7 scale).
-**Secondary:** `mean(purchase_intention in B) - mean(... in A)`;
-pre-treatment correlation of attainability/saving intention.
-**Guardrails:** <=10% incomplete responses, >=80% exact 24,000 KZT price
-comprehension, `4 * 6,000 = 24,000` verified; no private financial data.
-
-## 3. Repository structure
-
-```text
-student-saving-research/
-├── README.md                     Academic overview and Quickstart
-├── LICENSE                       MIT license
-├── .gitignore                    No secrets, virtualenvs, logs, or raw human data
-├── .python-version               CPython 3.13.5
-├── requirements.txt              Direct packages with exact versions
-├── environment.yml              Pinned Conda alternative
-├── configs/
-│   └── config.yaml               Groups, prices, sample paths, thresholds
-├── data/
-│   └── sample/
-│       └── sample_responses.csv  9 invented records; NO participants
-├── src/
-│   ├── analysis.py               Score validation, group statistics, guardrails
-│   ├── benchmark.py              Executable measurement pipeline
-│   └── mentor_preview.py         Rule-based financial arithmetic demonstration
-├── tests/                        Automated tests with invalid data cases
-├── outputs/                      Created on run; ignored by git
-└── docs/
-    ├── methodology_passport.md   Full methodology card
-    ├── experimental_protocol.md  Conditions, design, limitations
-    ├── survey_instrument.md      Draft survey wording
-    ├── ai_system_design.md       Proposed AI MVP architecture and privacy
-    ├── reproducibility_checklist.md
-    └── demo_run_output.txt       Verified example of synthetic test run
-```
-
-## 4. System requirements
-
-- **Tested** with **CPython 3.13.5** and **PyYAML 6.0.3**.
-- Windows, macOS or Linux terminal; no GPU, CUDA, database or bank account.
-- Rough guide: 1 CPU core and 512 MB of RAM for the nine-row sample.
-- Run commands from the repository root. Conda users can alternatively create
-  the pinned environment with `conda env create -f environment.yml` and
-  `conda activate saving-research-task2`.
-
-## 5. Quickstart (3 commands)
+Use Python 3.12 in a virtual environment, from this repository root:
 
 ```bash
 python -m pip install -r requirements.txt
-python -m src.benchmark
-python -m unittest discover -s tests -v
+python run_task3.py
 ```
 
-`python -m src.benchmark` reads `configs/config.yaml`, validates synthetic
-`data/sample/sample_responses.csv`, and generates:
+If kernel startup is blocked, use `python run_task3.py --in-process`.
 
-- `outputs/demo_results.json` - machine-readable metrics and guardrails.
-- `outputs/demo_group_summary.csv` - group aggregates.
-- `outputs/demo_run.log` - short test log.
+This executes the notebook and recreates summaries, figures, this README and the report from the supplied
+logs. To collect a new run on your own computer, use `python run_task3.py --measure` instead of the second
+command. This replaces the saved measurements; results will change. No GPU or API key is needed.
+Conda alternative: `conda env create -f environment.yml`, then `conda activate saving-research-task3`.
+For interactive editing, open the notebook in VS Code with the Jupyter extension and the same environment.
 
-For a separate **non-AI** money calculator demonstration, optionally run
-`python -m src.mentor_preview`. It shows how installments can affect projected
-saving time, under explicit simplifying assumptions.
+## Files
 
-## 6. Expected benchmark / evaluation results
+| Path | Purpose |
+|---|---|
+| data/synthetic/ | 330 profiles, generation manifest and checks |
+| data/raw/test_run.jsonl | 1320 recorded batch measurements, including warm-up |
+| data/raw/run_metadata.json | Measurement environment, timestamps and hashes |
+| data/processed/metrics_summary.csv | Latency statistics and error rates |
+| notebooks/01_data_analysis.ipynb | Executed notebook with visible outputs |
+| src/task3_benchmark.py | Input adapter, fixed reminder and measurement runner |
+| src/mentor_preview.py | Existing Task 2 personalized calculator |
+| src/process_data.py, src/visualize.py | Statistics and figure export |
+| src/task3_report.py | Report/README generation from saved statistics |
+| scripts/generate_dataset.py | Reproduce the synthetic input data |
+| reports/task3_report.md | Submission report; review before LMS upload |
+| docs/domain_model.md | C4 component diagram and arithmetic definitions |
+| docs/task3_protocol.md | Measurement design and limitations |
+| docs/questionnaire_ru.md | Extended survey for future piloting |
 
-The following are **output definitions, not findings** from real students.
+## Results & Discussion
 
-| Evaluation metric | Source | Unit / expected behavior |
-|---|---|---|
-| Goal attainment change (C - B) | Synthetic pilot CSV | Mean difference in scale points; the sample output is only a test |
-| Purchase intention (B - A) | Synthetic pilot CSV | Difference of means, 1-7 scale points |
-| Initial attainability vs saving intention | Synthetic pilot CSV | Descriptive Pearson r; future adjusted model on real data |
-| Missing response rate | Pilot CSV | <= 10% target; reports current fraction |
-| Price comprehension rate | Pilot CSV | >= 80% target; correct total is 24,000 KZT |
-| Runtime / pipeline | Local machine | Script succeeds, 3 files created, tests pass |
+A batch is a sequential list of profiles, not simultaneous users. Each method/load has 200 measured
+runs after 20 warm-ups. CI = 2000-resample percentile bootstrap interval for the median.
 
-**Do not report these synthetic numbers as an experimental result.** An actual
-AI intervention is not present; no real survey outcomes have been collected.
-For a later participant study, report sample sizes, group means, 95% CIs,
-pre-specified comparisons and limitations. The earlier Task 1 exploratory
-interaction is not computed from just nine invented rows.
+| Profiles | Method | Median (p25–p75), ms | 95% CI of median, ms | p95 / p99, ms | Errors |
+|---:|---|---|---|---|---:|
+| 10 | Baseline | 0.0045 (0.0021–0.0074) | 0.0042–0.0047 | 0.0154 / 0.0237 | 0/200 |
+| 10 | Proposed | 0.0178 (0.0157–0.0239) | 0.0171–0.0191 | 0.0332 / 0.0470 | 0/200 |
+| 100 | Baseline | 0.0106 (0.0077–0.0164) | 0.0104–0.0111 | 0.0215 / 0.0349 | 0/200 |
+| 100 | Proposed | 0.1342 (0.1239–0.1510) | 0.1305–0.1397 | 0.2231 / 0.3748 | 0/200 |
+| 330 | Baseline | 0.0260 (0.0229–0.0335) | 0.0251–0.0280 | 0.0519 / 0.0786 | 0/200 |
+| 330 | Proposed | 0.4291 (0.4021–0.4835) | 0.4134–0.4402 | 0.7008 / 0.8677 | 0/200 |
 
-## 7. Reproducibility, limitations and ethics
+At 330 profiles, Baseline took a median of 0.0260 ms per batch and
+Proposed took 0.4291 ms. The observed ratio of medians was 16.5.
+This is an overhead comparison: Proposed performs personalized calculations and creates a larger output.
+It is not a fair comparison of two algorithms solving an identical task, and no speed improvement is claimed.
+There were 0 failed batches out of 1200 measured attempts.
+The 0% target guardrail is met in this run.
+Successful timings alone do not hide failures: the table retains all attempts in the error denominator.
 
-Environment file pins direct versions and config controls the inputs. All demo
-calculations are deterministic, with no remote APIs, model downloads or private
-bank accounts. Both payment representations keep the exact same terms; only
-visual prominence varies. The sample is synthetic; other researchers can
-re-run the pipeline but **cannot reproduce evidence that has not yet been
-collected**. The direct environment has been tested locally; installation on
-every OS is not guaranteed and must be verified by independent reviewers.
 
-Real recruitment requires voluntary consent, careful handling of sensitive
-financial information and appropriate institutional/course approval. Human data
-must not be committed to the public repository. Use fixed prompts and review
-future AI messages for arithmetic errors and unsafe financial claims.
+![Median batch latency with 95% CI](reports/figures/fig1_latency_vs_load.png)
 
-## 8. Citation and license
+![Latency distribution and median CI](reports/figures/fig2_distribution_boxplot.png)
 
-If referencing this repository, cite:
+The box shows quartiles and 1.5-IQR whiskers; dots show outliers. Adjacent markers show median CIs.
+Vector PDF versions are in the same folder. [Domain model](docs/domain_model.md).
 
-```bibtex
-@misc{gumar_kydyralina_2026_saving_research,
-  author = {Gumar, Nurtore and Kydyralina, Akniet},
-  title = {Why Saving Seems Pointless to Students: The Role of Financial Expectations and Digital Purchase Incentives},
-  year = {2026},
-  note = {Research Methods Task 2; methodology and reproducible synthetic-data demo},
-  howpublished = {https://github.com/nurtore067/student-saving-research}
-}
-```
+## Interpretation and limitations
 
-Source code and original synthetic files are released under the [MIT License](LICENSE).
-Actual participants' identifiable financial data must **not** be public or
-implicitly covered by this license.
+Proposed performs more work than Baseline. Timing differences are overhead, not evidence of better
+financial decisions. There is one host/session; p99 and CIs are sensitive to noise and dependence.
+The [synthetic-data notes](docs/synthetic_data_notes.md) explain invented response coefficients.
+Synthetic group differences cannot validate the human study. No savings behavior was observed.
+
+## Checks and provenance
+
+`python -m unittest discover -s tests -v` checks the original pipeline and the Task 3 additions.
+The delivered notebook cells were executed from start to finish using IPython in a fresh Python process.
+For final verification, use Jupyter Restart & Run All locally before submission. Benchmark measurements were collected on Nurtore's Windows 11 computer. Statistical analysis and visualizations were produced on Akniet's Mac. Benchmark environment details are in data/raw/run_metadata.json. Direct dependency versions are pinned.
+The old Task 2 sample still runs with `python -m src.benchmark`.
+Generated source and report drafts used ChatGPT assistance; the project team must review and understand
+its contributions before submission. Review guidance is in [the Russian guide](docs/TASK3_GUIDE_RU.md).
+
+[MIT license](LICENSE). No private student data is included.
