@@ -1,0 +1,61 @@
+{
+  "status": "passed",
+  "rows": 330,
+  "columns": 63,
+  "unique_ids": 330,
+  "unique_persona_descriptions": 330,
+  "groups": {
+    "A": 110,
+    "B": 110,
+    "C": 110
+  },
+  "ages": {
+    "18": 39,
+    "19": 62,
+    "20": 71,
+    "21": 52,
+    "22": 50,
+    "23": 27,
+    "24": 29
+  },
+  "circumstances": 24,
+  "deficit_cases": 35,
+  "group_reactions": {
+    "A": {
+      "positive": 15,
+      "negative": 38,
+      "neutral": 57
+    },
+    "B": {
+      "neutral": 68,
+      "positive": 19,
+      "negative": 23
+    },
+    "C": {
+      "neutral": 72,
+      "positive": 22,
+      "negative": 16
+    }
+  },
+  "price_comprehension_rate": 0.8666666666666667,
+  "checked": [
+    "counts",
+    "unique IDs and descriptions",
+    "scale bounds",
+    "financial arithmetic",
+    "synthetic markers",
+    "required Task 2 columns",
+    "derived outcomes"
+  ],
+  "not_claimed": [
+    "population realism",
+    "human responses",
+    "independent LLM interviews",
+    "AI treatment efficacy"
+  ],
+  "csv_roundtrip": "passed",
+  "sha256_csv": "c24469643a4adf2b5fe4b45ab589b4404b51e2c679763fdfd3de36c9603dcd57",
+  "dictionary_coverage": "63/63 columns",
+  "baseline_unchanged_after_allocation": "passed",
+  "rerun_sha256_match": "passed"
+}
