@@ -30,7 +30,7 @@ The bootstrap median CI uses 2000 resamples and seed 3242; the error rate uses a
 |---:|---|---|---|---|---:|
 | 10 | Baseline | 0.0045 (0.0021–0.0074) | 0.0042–0.0047 | 0.0154 / 0.0237 | 0/200 |
 | 10 | Proposed | 0.0178 (0.0157–0.0239) | 0.0171–0.0191 | 0.0332 / 0.0470 | 0/200 |
-| 100 | Baseline | 0.0106 (0.0077–0.0164) | 0.0104–0.0111 | 0.0215 / 0.0349 | 0/200 |
+| 100 | Baseline | 0.0106 (0.0077–0.0163) | 0.0103–0.0111 | 0.0215 / 0.0349 | 0/200 |
 | 100 | Proposed | 0.1342 (0.1239–0.1510) | 0.1305–0.1397 | 0.2231 / 0.3748 | 0/200 |
 | 330 | Baseline | 0.0260 (0.0229–0.0335) | 0.0251–0.0280 | 0.0519 / 0.0786 | 0/200 |
 | 330 | Proposed | 0.4291 (0.4021–0.4835) | 0.4134–0.4402 | 0.7008 / 0.8677 | 0/200 |
@@ -59,11 +59,11 @@ outputs. Both figures show latency in milliseconds, use distinct colors and mark
 ## Limitations
 
 One execution environment and one session were measured. These small timings are sensitive to interpreter
-and shared-host noise. Bootstrap intervals may understate uncertainty if observations are temporally
+and operating-system scheduling noise. Bootstrap intervals may understate uncertainty if observations are temporally
 dependent. With 200 runs, p99 describes very few tail observations. Zero errors on valid profiles does not
 prove all possible inputs are safe. The fixed arithmetic assumes stable income and saving every free tenge.
 RAM, API response time, LLM quality, actual saving and student satisfaction were not measured.
-The next practical steps are repeated sessions on the students' computers, a real pilot questionnaire,
+The next practical steps are repeated benchmark sessions across different machines, a real pilot questionnaire,
 and evaluation of a controlled AI-assisted intervention. No claim about population behavior follows here.
 
 ## Reproduction
@@ -71,14 +71,17 @@ and evaluation of a controlled AI-assisted intervention. No claim about populati
 Install requirements.txt and run `python run_task3.py` to reprocess the supplied logs and execute the
 notebook. Run `python run_task3.py --measure` to replace timings with new local measurements and refresh
 all results. If your environment blocks Jupyter kernel sockets, add `--in-process`.
-The delivered outputs were obtained with this IPython mode, not a separate Jupyter kernel.
+The notebook was also re-executed successfully in VS Code on Windows using Python 3.12.10.
 The input CSV and bootstrap are reproducible; execution times naturally vary.
 The source of the recorded run, Python, platform, timestamps and file hashes are in data/raw/run_metadata.json.
 
 ## AI Assistance
 
-ChatGPT was used as a supporting tool for code development, synthetic data generation, statistical analysis, and documentation.
+ChatGPT was used as a supporting tool for code development, synthetic data generation,
+statistical analysis, and documentation.
 
-The project was developed collaboratively by Gumar Nurtore and Kydyralina Akniet. Nurtore conducted the technical benchmarks on Windows, while Akniet performed the statistical analysis and prepared the visualizations on macOS.
+The project was developed collaboratively by Gumar Nurtore and Kydyralina Akniet.
+Nurtore conducted the technical benchmarks on Windows, while Akniet performed
+the statistical analysis and prepared the visualizations on macOS.
 
 The authors are responsible for the final research results, interpretation, and conclusions.

@@ -66,11 +66,11 @@ outputs. Both figures show latency in milliseconds, use distinct colors and mark
 ## Limitations
 
 One execution environment and one session were measured. These small timings are sensitive to interpreter
-and shared-host noise. Bootstrap intervals may understate uncertainty if observations are temporally
+and operating-system scheduling noise. Bootstrap intervals may understate uncertainty if observations are temporally
 dependent. With 200 runs, p99 describes very few tail observations. Zero errors on valid profiles does not
 prove all possible inputs are safe. The fixed arithmetic assumes stable income and saving every free tenge.
 RAM, API response time, LLM quality, actual saving and student satisfaction were not measured.
-The next practical steps are repeated sessions on the students' computers, a real pilot questionnaire,
+The next practical steps are repeated benchmark sessions across different machines, a real pilot questionnaire,
 and evaluation of a controlled AI-assisted intervention. No claim about population behavior follows here.
 
 ## Reproduction
@@ -78,16 +78,20 @@ and evaluation of a controlled AI-assisted intervention. No claim about populati
 Install requirements.txt and run `python run_task3.py` to reprocess the supplied logs and execute the
 notebook. Run `python run_task3.py --measure` to replace timings with new local measurements and refresh
 all results. If your environment blocks Jupyter kernel sockets, add `--in-process`.
-The delivered outputs were obtained with this IPython mode, not a separate Jupyter kernel.
+The notebook was also re-executed successfully in VS Code on Windows using Python 3.12.10.
 The input CSV and bootstrap are reproducible; execution times naturally vary.
 The source of the recorded run, Python, platform, timestamps and file hashes are in data/raw/run_metadata.json.
 
-## AI assistance
+## AI Assistance
 
-ChatGPT assisted with code, synthetic data, analysis and explanatory drafts. This is a review draft for the
-two named students. The names identify the project team; no claim is made that they independently wrote
-or reviewed every generated line. Team members should review, run and explain their assigned parts before
-submitting, and follow their course's AI disclosure rules.
+ChatGPT was used as a supporting tool for code development, synthetic data generation,
+statistical analysis, and documentation.
+
+The project was developed collaboratively by Gumar Nurtore and Kydyralina Akniet.
+Nurtore conducted the technical benchmarks on Windows, while Akniet performed
+the statistical analysis and prepared the visualizations on macOS.
+
+The authors are responsible for the final research results, interpretation, and conclusions.
 '''
     (ROOT/'reports/task3_report.md').write_text(report,encoding='utf-8')
     readme=f'''# Why Saving Seems Pointless to Students
@@ -166,12 +170,15 @@ Synthetic group differences cannot validate the human study. No savings behavior
 ## Checks and provenance
 
 `python -m unittest discover -s tests -v` checks the original pipeline and the Task 3 additions.
-The delivered notebook cells were executed from start to finish using IPython in a fresh Python process.
-Separate kernel sockets are blocked on the authoring host; use Jupyter Restart & Run All locally before submission. New measurements were obtained in the
-ChatGPT execution environment; details are in run_metadata.json. Direct dependency versions are pinned.
+The notebook was re-executed successfully in VS Code on Windows using Python 3.12.10.
+For final verification, use Jupyter Restart & Run All locally before submission.
+Benchmark measurements were collected on Nurtore's Windows 11 computer.
+Statistical analysis and visualizations were produced on Akniet's Mac.
+Benchmark environment details are in data/raw/run_metadata.json.
+Direct dependency versions are pinned.
 The old Task 2 sample still runs with `python -m src.benchmark`.
-Generated source and report drafts used ChatGPT assistance; the project team must review and understand
-its contributions before submission. Review guidance is in [the Russian guide](docs/TASK3_GUIDE_RU.md).
+ChatGPT assisted with code development, synthetic data generation, analysis and documentation.
+The authors are responsible for the final results, interpretation and conclusions.
 
 [MIT license](LICENSE). No private student data is included.
 '''

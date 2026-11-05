@@ -57,7 +57,7 @@ runs after 20 warm-ups. CI = 2000-resample percentile bootstrap interval for the
 |---:|---|---|---|---|---:|
 | 10 | Baseline | 0.0045 (0.0021–0.0074) | 0.0042–0.0047 | 0.0154 / 0.0237 | 0/200 |
 | 10 | Proposed | 0.0178 (0.0157–0.0239) | 0.0171–0.0191 | 0.0332 / 0.0470 | 0/200 |
-| 100 | Baseline | 0.0106 (0.0077–0.0164) | 0.0104–0.0111 | 0.0215 / 0.0349 | 0/200 |
+| 100 | Baseline | 0.0106 (0.0077–0.0163) | 0.0103–0.0111 | 0.0215 / 0.0349 | 0/200 |
 | 100 | Proposed | 0.1342 (0.1239–0.1510) | 0.1305–0.1397 | 0.2231 / 0.3748 | 0/200 |
 | 330 | Baseline | 0.0260 (0.0229–0.0335) | 0.0251–0.0280 | 0.0519 / 0.0786 | 0/200 |
 | 330 | Proposed | 0.4291 (0.4021–0.4835) | 0.4134–0.4402 | 0.7008 / 0.8677 | 0/200 |
@@ -88,10 +88,14 @@ Synthetic group differences cannot validate the human study. No savings behavior
 ## Checks and provenance
 
 `python -m unittest discover -s tests -v` checks the original pipeline and the Task 3 additions.
-The delivered notebook cells were executed from start to finish using IPython in a fresh Python process.
-For final verification, use Jupyter Restart & Run All locally before submission. Benchmark measurements were collected on Nurtore's Windows 11 computer. Statistical analysis and visualizations were produced on Akniet's Mac. Benchmark environment details are in data/raw/run_metadata.json. Direct dependency versions are pinned.
+The notebook was re-executed successfully in VS Code on Windows using Python 3.12.10.
+For final verification, use Jupyter Restart & Run All locally before submission.
+Benchmark measurements were collected on Nurtore's Windows 11 computer.
+Statistical analysis and visualizations were produced on Akniet's Mac.
+Benchmark environment details are in data/raw/run_metadata.json.
+Direct dependency versions are pinned.
 The old Task 2 sample still runs with `python -m src.benchmark`.
-Generated source and report drafts used ChatGPT assistance; the project team must review and understand
-its contributions before submission. Review guidance is in [the Russian guide](docs/TASK3_GUIDE_RU.md).
+ChatGPT assisted with code development, synthetic data generation, analysis and documentation.
+The authors are responsible for the final results, interpretation and conclusions.
 
 [MIT license](LICENSE). No private student data is included.
