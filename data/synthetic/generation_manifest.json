@@ -1,0 +1,33 @@
+{
+  "version": "persona_rules_v1.0",
+  "n": 330,
+  "seeds": {
+    "profiles": 3242,
+    "allocation": 3243,
+    "responses": 3244,
+    "row_order": 3245
+  },
+  "method": "LLM-designed rule-based persona simulation; Python-generated records and templated narratives",
+  "separate_llm_calls": 0,
+  "human_participants": 0,
+  "allocation": "shuffle fixed multiset A*110+B*110+C*110 after generating baseline profiles",
+  "output_order": "independent shuffle",
+  "missingness": "only optional confusion_comment may be empty",
+  "financial_units": "KZT",
+  "encoding": "UTF-8 with BOM",
+  "delimiter": ",",
+  "source_documents": [
+    "survey_instrument.md (Task 2)",
+    "experimental_protocol.md (Task 2)",
+    "methodology_passport.md v1.0",
+    "analysis.py (Task 2 schema)"
+  ],
+  "limitations": [
+    "330 is a scenario budget, not a statistically justified human sample size",
+    "All profile frequencies and response coefficients are invented, not population-calibrated",
+    "C uses a deterministic personalized preview; no generative AI intervention is tested",
+    "All personas have a defined saving goal and simulated consent",
+    "Deficit cases are explicitly represented; future real protocol must specify their treatment",
+    "Synthetic responses are not benchmark timing measurements"
+  ]
+}
