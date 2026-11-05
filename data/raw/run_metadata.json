@@ -1,0 +1,26 @@
+{
+  "started_utc": "2026-11-05T15:13:55.487570+00:00",
+  "ended_utc": "2026-11-05T15:13:55.663666+00:00",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26100-SP0",
+  "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+  "timer": "namespace(implementation='QueryPerformanceCounter()', monotonic=True, adjustable=False, resolution=1e-07)",
+  "seed": 3242,
+  "loads": [
+    10,
+    100,
+    330
+  ],
+  "warmup_per_configuration": 20,
+  "measurements_per_configuration": 200,
+  "unit": "batch latency in ms",
+  "execution_location": "ChatGPT execution environment, not student laptop",
+  "workload": "fixed nested subsets of the same 330 synthetic profiles; sequential CPU batches",
+  "baseline_revision": "",
+  "files_sha256": {
+    "data\\raw\\test_run.jsonl": "4be0c2ad47752e140190a664d1853a889529dbe14c2587462588a1f18f969a1c",
+    "data\\synthetic\\synthetic_responses_330.csv": "c24469643a4adf2b5fe4b45ab589b4404b51e2c679763fdfd3de36c9603dcd57",
+    "src\\task3_benchmark.py": "c4f56fae256870f262396feabb07fd3b2fd444383d6f969293b42da80b2250d2",
+    "src\\mentor_preview.py": "87ff0306bfee476488e1de50bd455e8d361c80fc83b775bbef19674e4113abbf"
+  }
+}
