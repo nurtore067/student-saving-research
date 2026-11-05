@@ -1,9 +1,15 @@
-# Conda alternative to the pip Quickstart; direct versions pinned.
-name: saving-research-task2
+name: saving-research-task3
 channels:
   - conda-forge
 dependencies:
-  - python=3.13.5
-  - pip=25.1.1
+  - python=3.12
+  - pip
   - pip:
+      - numpy==2.3.5
+      - pandas==2.2.3
+      - matplotlib==3.10.8
       - PyYAML==6.0.3
+      - nbformat==5.11.1
+      - nbclient==0.11.0
+      - ipykernel==7.4.0
+      - ipython==9.18.1

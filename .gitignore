@@ -24,7 +24,9 @@ Thumbs.db
 secrets.*
 credentials.*
 data/private/
-data/raw/
+data/raw/*
+!data/raw/test_run.jsonl
+!data/raw/run_metadata.json
 data/real/
 
 # Outputs and potentially large artifacts

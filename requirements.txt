@@ -1,2 +1,9 @@
-# Exact direct dependency. Tested with CPython 3.13.5.
+# Direct dependencies used for Task 3. Python 3.12 recommended.
+numpy==2.3.5
+pandas==2.2.3
+matplotlib==3.10.8
 PyYAML==6.0.3
+nbformat==5.11.1
+nbclient==0.11.0
+ipykernel==7.4.0
+ipython==9.18.1
